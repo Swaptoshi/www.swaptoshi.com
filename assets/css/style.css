@@ -840,7 +840,7 @@ ol {
 .testimonial__item--style2 .testimonial__item-inner,
 .service__thumb-inner,
 .banner--style3 .banner__counter-item {
-  padding: 25px;
+  padding: 15px 25px;
 }
 
 .sidebar__comment-body,
@@ -1056,8 +1056,8 @@ ol {
 
 /* @@@@@@@@@@@@@  aditional Property CSS Writing Now  @@@@@@@@@@@@@@ */
 [data-bs-theme="light"] {
-  --brand-color: rgb(70 115 250);
-  --secondary-color: rgb(150 70 250);
+  --brand-color: rgb(99 188 6);
+  --secondary-color: rgb(181 208 0);
   --primary-gradient: radial-gradient(
     101.8% 4091.31% at 0% 0%,
     var(--brand-color) 0%,
@@ -1152,8 +1152,8 @@ ol {
 }
 
 [data-bs-theme="dark"] {
-  --brand-color: rgb(70 115 250);
-  --secondary-color: rgb(150 70 250);
+  --brand-color: rgb(99 188 6);
+  --secondary-color: rgb(181 208 0);
   --primary-gradient: radial-gradient(
     101.8% 4091.31% at 0% 0%,
     var(--brand-color) 0%,
