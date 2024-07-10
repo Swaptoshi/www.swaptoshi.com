@@ -4843,6 +4843,7 @@ h6 a {
 }
 @media (min-width: 768px) {
   .banner--style1 {
+    margin-bottom: 5rem;
     padding-block-start: 132px;
     padding-block-end: 100px;
   }
