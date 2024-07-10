@@ -9,8 +9,26 @@ window.addEventListener("load", function () {
 
   var year = new Date().getFullYear();
   const copyright = document.getElementById("copyright-year");
-  console.log(copyright);
   copyright.innerText = year.toString();
+
+  let theme = localStorage.getItem("theme");
+  const themeSwitchIcon = document.querySelector("#btnSwitch div");
+  if (!theme) {
+    theme = getSystemTheme();
+    localStorage.setItem("theme", theme);
+  }
+
+  document.documentElement.setAttribute(
+    "data-bs-theme",
+    theme === "dark" ? "dark" : "light"
+  );
+  if (theme === "dark") {
+    themeSwitchIcon.className = "switch-icon-sun";
+    setDarkTheme();
+  } else {
+    themeSwitchIcon.className = "switch-icon-moon";
+    setLightTheme();
+  }
 });
 
 // =================== preloader js end ================== //
@@ -37,31 +55,45 @@ moon.addEventListener("click", () => {
 
 // =================== Change image path start ================== //
 
-function changeImage() {
-  var theme = document.querySelector("html").getAttribute("data-bs-theme");
-  if (theme === "dark") {
-    var images = document.querySelectorAll("img.dark");
+function setDarkTheme() {
+  localStorage.setItem("theme", "dark");
+  var images = document.querySelectorAll("img.dark");
 
-    for (var i = 0; i < images.length; i++) {
-      var oldSrc = images[i].src;
-      var oldIndex = oldSrc.lastIndexOf(".");
-      var baseName = oldSrc.slice(0, oldIndex);
-      var extension = oldSrc.slice(oldIndex);
-      var newSrc = baseName + "-dark" + extension;
-      images[i].src = newSrc;
-    }
-  } else {
-    var images = document.querySelectorAll("img.dark");
-
-    for (var i = 0; i < images.length; i++) {
-      var oldSrc = images[i].src;
-      var newSrc = oldSrc.replace("-dark.", ".");
-      images[i].src = newSrc;
-    }
+  for (var i = 0; i < images.length; i++) {
+    var oldSrc = images[i].src;
+    var oldIndex = oldSrc.lastIndexOf(".");
+    var baseName = oldSrc.slice(0, oldIndex);
+    var extension = oldSrc.slice(oldIndex);
+    var newSrc = baseName + "-dark" + extension;
+    images[i].src = newSrc;
   }
 }
 
-changeImage();
+function setLightTheme() {
+  localStorage.setItem("theme", "light");
+  var images = document.querySelectorAll("img.dark");
+
+  for (var i = 0; i < images.length; i++) {
+    var oldSrc = images[i].src;
+    var newSrc = oldSrc.replace("-dark.", ".");
+    images[i].src = newSrc;
+  }
+}
+
+function getSystemTheme() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+function changeImage() {
+  var theme = document.querySelector("html").getAttribute("data-bs-theme");
+  if (theme === "dark") {
+    setDarkTheme();
+  } else {
+    setLightTheme();
+  }
+}
 
 // =================== Change image path end ================== //
 
