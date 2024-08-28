@@ -6369,21 +6369,21 @@ textarea:focus-within {
   border: 1px solid var(--brand-color);
   color: var(--brand-color);
   background-color: var(--primary-accent);
-  padding: 0.53rem 1rem;
+  padding: 0.75rem 1rem;
 }
 @media (min-width: 576px) {
   .trk-btn--outline22 {
-    padding: 0.8rem 1.25rem;
+    padding: 1rem 1.25rem;
   }
 }
 @media (min-width: 992px) {
   .trk-btn--outline22 {
-    padding: 0.8rem 1.75rem;
+    padding: 1rem 1.75rem;
   }
 }
 @media (min-width: 1200px) {
   .trk-btn--outline22 {
-    padding: 0.78rem 1.875rem;
+    padding: 1rem 1.875rem;
   }
 }
 .trk-btn--outline22 span.style1 svg {
