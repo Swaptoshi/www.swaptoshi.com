@@ -9847,7 +9847,7 @@ textarea:focus-within {
   .roadmap--style1 .roadmap__wrapper:after {
     position: absolute;
     content: "";
-    height: 25%;
+    height: 40%;
     width: 10px;
     background: var(--primary-gradient);
     border-radius: 8px;
